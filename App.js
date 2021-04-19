@@ -1,21 +1,52 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+//mport React from 'react';
+//import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler';
+import * as React from 'react';
+import { StyleSheet, Button, View,Text} from 'react-native';
+import Menu, { MenuItem, MenuDivider } from 'react-native-material-menu';
+import { NavigationContainer } from '@react-navigation/native';
+//import { createStackNavigator } from '@react-navigation/stack';
 
-export default function App() {
+import Register from './screens/Register';
+
+
+//import MenuItem from "...";
+//import Button from "...";
+//import Menu from "@material-ui/core/Menu";
+  
+const App = () => {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View>
+      <Button
+        // aria-controls="simple-menu"
+        // aria-haspopup="true"
+        onClick={handleClick}
+        title="Open Menu List"
+      />
+      <Menu
+        keepMounted
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        open={Boolean(anchorEl)}
+      >
+        <MenuItem onClick={handleClose}>View</MenuItem>
+        <MenuItem onClick={handleClose}>Register</MenuItem>
+        <MenuItem onClick={handleClose}>Update</MenuItem>
+        <MenuItem onClick={handleClose}>Delete</MenuItem>
+      </Menu>
     </View>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+};
+  
+export default App;
