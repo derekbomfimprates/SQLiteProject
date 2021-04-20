@@ -46,21 +46,26 @@ const HomeScreen = ({ navigation }) => {
           <Mytext text="SQLite Example" />
           <Mybutton
             style={styles.btn}
-            title="Register"
+            title="New User"
             customClick={() => navigation.navigate('Register')}
           />
           <Mybutton
-            title="Update"
-            customClick={() => navigation.navigate('Update')}
-          />
-          <Mybutton
-            title="View"
+            title="View User"
             customClick={() => navigation.navigate('View')}
           />
           <Mybutton
-            title="Delete"
+            title="Update User"
+            customClick={() => navigation.navigate('Update')}
+          />
+          <Mybutton
+            title="All Users"
+            customClick={() => navigation.navigate('ViewAllUsers')}
+          />
+          <Mybutton
+            title="Delete User"
             customClick={() => navigation.navigate('Delete')}
           />
+          
         </View>
        </View>
     </SafeAreaView>

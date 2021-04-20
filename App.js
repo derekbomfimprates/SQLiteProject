@@ -13,6 +13,7 @@ import RegisterUser from './screens/Register';
 import ViewUser from './screens/View';
 import DeleteUser from './screens/Delete';
 import UpdateUser from './screens/Updates';
+import ViewAllUser from './screens/ViewAllUser';
 
 
 //import MenuItem from "...";
@@ -83,6 +84,20 @@ const App = () => {
           }}
         />
         <Stack.Screen
+          name="ViewAll"
+          component={ViewAllUser}
+          options={{
+            title: 'View Users', //Set Header Title
+            headerStyle: {
+              backgroundColor: '#f4511e', //Set Header color
+            },
+            headerTintColor: '#fff', //Set Header text color
+            headerTitleStyle: {
+              fontWeight: 'bold', //Set Header text style
+            },
+          }}
+        />
+        <Stack.Screen
           name="Updates"
           component={UpdateUser}
           options={{
@@ -96,6 +111,7 @@ const App = () => {
             },
           }}
         />
+        
     
       </Stack.Navigator>
     </NavigationContainer>
