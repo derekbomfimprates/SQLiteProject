@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { StyleSheet, View, Text, SafeAreaView } from 'react-native';
 import Mybutton from './Components/MyButtons';
-import Mytext from './Components/Mytext';
+import Mytext from './Components/MyText';
 import * as SQLite from 'expo-sqlite';
 
 const db = SQLite.openDatabase('employees.db');
