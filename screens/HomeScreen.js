@@ -18,7 +18,7 @@ const HomeScreen = ({ navigation }) => {
             txn.executeSql(
               `CREATE TABLE IF NOT EXISTS employees
                   (
-                      id INTEGER PRIMARY KEY NOT NULL,
+                      id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
                       firstName TEXT NOT NULL,
                       lastName TEXT NOT NULL,
                       gender TEXT NOT NULL,
@@ -55,11 +55,11 @@ const HomeScreen = ({ navigation }) => {
           />
           <Mybutton
             title="Update User"
-            customClick={() => navigation.navigate('Update')}
+            customClick={() => navigation.navigate('Updates')}
           />
           <Mybutton
             title="All Users"
-            customClick={() => navigation.navigate('ViewAllUsers')}
+            customClick={() => navigation.navigate('ViewAllUser')}
           />
           <Mybutton
             title="Delete User"

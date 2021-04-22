@@ -12,7 +12,7 @@ import Mytextinput from './Components/MyTextInput';
 import Mybutton from './Components/MyButtons';
 import * as SQLite from 'expo-sqlite';
 
-const db = SQLite.openDatabase('UserDatabase.db');
+const db = SQLite.openDatabase('employees.db');
 
 const UpdateUser = ({ navigation }) => {
   let [inputUserId, setInputUserId] = useState('');

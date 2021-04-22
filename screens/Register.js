@@ -12,35 +12,44 @@ import Mytextinput from './Components/MyTextInput';
 import Mybutton from './Components/MyButtons';
 import * as SQLite from 'expo-sqlite';
 
-const db = SQLite.openDatabase('UserDatabase.db');
-
-
+const db = SQLite.openDatabase('employees.db');
+// id INTEGER PRIMARY KEY NOT NULL,
+// firstName TEXT NOT NULL,
+// lastName TEXT NOT NULL,
+// gender TEXT NOT NULL,
+// department TEXT NOT NULL  
 
 const RegisterUser = ({ navigation }) => {
-  let [userName, setUserName] = useState('');
-  let [userContact, setUserContact] = useState('');
-  let [userAddress, setUserAddress] = useState('');
+  let [firstName, setFirstName] = useState('');
+  let [lastName, setLastName] = useState('');
+  let [gender, setGender] = useState('');
+  let [department, setDepartment] = useState('');
 
   let register_user = () => {
-    console.log(userName, userContact, userAddress);
+    console.log(firstName, lastName, gender, department);
 
-    if (!userName) {
+    if (!firstName) {
       alert('Please fill name');
       return;
     }
-    if (!userContact) {
+    if (!lastName) {
       alert('Please fill Contact Number');
       return;
     }
-    if (!userAddress) {
+    if (!gender) {
       alert('Please fill Address');
       return;
     }
+    if (!department) {
+      alert('Please fill Address');
+      return;
+    }
+    
 
     db.transaction(function (tx) {
       tx.executeSql(
-        'INSERT INTO table_user (user_name, user_contact, user_address) VALUES (?,?,?)',
-        [userName, userContact, userAddress],
+        'INSERT INTO employees (firstName, lastName, gender, department) VALUES (?,?,?,?)',
+        [firstName, lastName, gender, department],
         (tx, results) => {
           console.log('Results', results.rowsAffected);
           if (results.rowsAffected > 0) {
@@ -70,30 +79,32 @@ const RegisterUser = ({ navigation }) => {
               behavior="padding"
               style={{ flex: 1, justifyContent: 'space-between' }}>
               <Mytextinput
-                placeholder="Enter Name"
+                placeholder="Enter First Name"
                 onChangeText={
-                  (userName) => setUserName(userName)
+                  (firstName) => setFirstName(firstName)
+                }
+                style={{ padding: 10 }}
+              />
+               <Mytextinput
+                placeholder="Enter Last Name"
+                onChangeText={
+                  (lastName) => setLastName(lastName)
                 }
                 style={{ padding: 10 }}
               />
               <Mytextinput
-                placeholder="Enter Contact No"
+                placeholder="Enter Gender"
                 onChangeText={
-                  (userContact) => setUserContact(userContact)
+                  (gender) => setGender(gender)
                 }
-                maxLength={10}
-                keyboardType="numeric"
                 style={{ padding: 10 }}
               />
               <Mytextinput
-                placeholder="Enter Address"
+                placeholder="Enter Department"
                 onChangeText={
-                  (userAddress) => setUserAddress(userAddress)
+                  (department) => setDepartment(department)
                 }
-                maxLength={225}
-                numberOfLines={5}
-                multiline={true}
-                style={{ textAlignVertical: 'top', padding: 10 }}
+                style={{ padding: 10 }}
               />
               <Mybutton title="Submit" customClick={register_user} />
             </KeyboardAvoidingView>

@@ -1,19 +1,17 @@
 
 import React, { useState, useEffect } from 'react';
 import { FlatList, Text, View, SafeAreaView } from 'react-native';
-import Mytextinput from './Components/MyTextInput';
-import Mybutton from './Components/MyButtons';
 import * as SQLite from 'expo-sqlite';
 
-const db = SQLite.openDatabase('UserDatabase.db');
+const db = SQLite.openDatabase('employees.db');
 
-const ViewAllUser = () => {
+const ViewAllUser = ({ navigation }) => {
   let [flatListItems, setFlatListItems] = useState([]);
 
   useEffect(() => {
     db.transaction((tx) => {
       tx.executeSql(
-        'SELECT * FROM table_user',
+        'SELECT * FROM employees',
         [],
         (tx, results) => {
           var temp = [];
@@ -40,12 +38,13 @@ const ViewAllUser = () => {
   let listItemView = (item) => {
     return (
       <View
-        key={item.user_id}
+        key={item.id}
         style={{ backgroundColor: 'white', padding: 20 }}>
-        <Text>Id: {item.user_id}</Text>
-        <Text>Name: {item.user_name}</Text>
-        <Text>Contact: {item.user_contact}</Text>
-        <Text>Address: {item.user_address}</Text>
+        <Text>Id: {item.id}</Text>
+        <Text>First Name: {item.firstName}</Text>
+        <Text>Last Name: {item.lastName}</Text>
+        <Text>Gender: {item.gender}</Text>
+        <Text>Department: {item.department}</Text>
       </View>
     );
   };

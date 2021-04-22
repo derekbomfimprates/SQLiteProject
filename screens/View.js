@@ -4,7 +4,7 @@ import Mytextinput from './Components/MyTextInput';
 import Mybutton from './Components/MyButtons';
 import * as SQLite from 'expo-sqlite';
 
-const db = SQLite.openDatabase('UserDatabase.db');
+const db = SQLite.openDatabase('employees.db');
 
 const ViewUser = () => {
   let [inputUserId, setInputUserId] = useState('');
