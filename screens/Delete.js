@@ -3,11 +3,12 @@ import { Text, View, Alert, SafeAreaView } from 'react-native';
 import Mytextinput from './Components/MyTextInput';
 import Mybutton from './Components/MyButtons';
 import * as SQLite from 'expo-sqlite';
+import { Icon } from 'react-native-elements';
 
 const db = SQLite.openDatabase('employees.db');
 
 const DeleteUser = ({ navigation }) => {
-  let [inputUserId, setInputUserId] = useState('');
+  let [inputUserId, setInputUserId] = useState(''); 
 
   let deleteUser = () => {
     db.transaction((tx) => {
@@ -40,6 +41,7 @@ const DeleteUser = ({ navigation }) => {
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ flex: 1, backgroundColor: 'white' }}>
         <View style={{ flex: 1 }}>
+        <Icon style={{  flexDirection: "row" }} name='person-remove-outline' type='ionicon'/>
           <Mytextinput
             placeholder="Enter User Id"
             onChangeText={
@@ -54,5 +56,6 @@ const DeleteUser = ({ navigation }) => {
     </SafeAreaView>
   );
 };
+
 
 export default DeleteUser;
