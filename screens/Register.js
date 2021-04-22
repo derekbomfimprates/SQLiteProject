@@ -29,19 +29,19 @@ const RegisterUser = ({ navigation }) => {
     console.log(firstName, lastName, gender, department);
 
     if (!firstName) {
-      alert('Please fill name');
+      alert('Please fill first name');
       return;
     }
     if (!lastName) {
-      alert('Please fill Contact Number');
+      alert('Please fill last name');
       return;
     }
     if (!gender) {
-      alert('Please fill Address');
+      alert('Please fill gender');
       return;
     }
     if (!department) {
-      alert('Please fill Address');
+      alert('Please fill department');
       return;
     }
     
