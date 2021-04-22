@@ -7,16 +7,16 @@ import * as SQLite from 'expo-sqlite';
 const db = SQLite.openDatabase('employees.db');
 
 const ViewUser = () => {
-  let [inputUserId, setInputUserId] = useState('');
+  let [userId, setUserId] = useState('');
   let [userData, setUserData] = useState({});
 
   let searchUser = () => {
-    console.log(inputUserId);
+    console.log(userId);
     setUserData({});
     db.transaction((tx) => {
       tx.executeSql(
-        'SELECT * FROM table_user where user_id = ?',
-        [inputUserId],
+        'SELECT * FROM employees where id = ?',
+        [userId],
         (tx, results) => {
           var len = results.rows.length;
           console.log('len', len);
@@ -37,7 +37,7 @@ const ViewUser = () => {
           <Mytextinput
             placeholder="Enter User Id"
             onChangeText={
-              (inputUserId) => setInputUserId(inputUserId)
+              (userId) => setUserId(userId)
             }
             style={{ padding: 10 }}
           />
@@ -48,10 +48,11 @@ const ViewUser = () => {
               marginRight: 35,
               marginTop: 10
             }}>
-            <Text>User Id: {userData.user_id}</Text>
-            <Text>User Name: {userData.user_name}</Text>
-            <Text>User Contact: {userData.user_contact}</Text>
-            <Text>User Address: {userData.user_address}</Text>
+            <Text>Employee Id: {userData.id}</Text>
+            <Text>First Name: {userData.firstName}</Text>
+            <Text>Last Name: {userData.lastName}</Text>
+            <Text>Gender: {userData.gender}</Text>
+            <Text>Department: {userData.department}</Text>
           </View>
         </View>
         

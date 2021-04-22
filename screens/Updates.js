@@ -15,64 +15,71 @@ import * as SQLite from 'expo-sqlite';
 const db = SQLite.openDatabase('employees.db');
 
 const UpdateUser = ({ navigation }) => {
-  let [inputUserId, setInputUserId] = useState('');
-  let [userName, setUserName] = useState('');
-  let [userContact, setUserContact] = useState('');
-  let [userAddress, setUserAddress] = useState('');
+  let [userId, setUserId] = useState('');
+  let [firstName, setFirstName] = useState('');
+  let [lastName, setLastName] = useState('');
+  let [gender, setGender] = useState('');
+  let [department, setDepartment] = useState('');
 
-  let updateAllStates = (name, contact, address) => {
-    setUserName(name);
-    setUserContact(contact);
-    setUserAddress(address);
+  let updateAllStates = (f_name, l_name, gender, department) => {
+    setFirstName(f_name);
+    setLastName(l_name);
+    setGender(gender);
+    setDepartment(department);
   };
 
   let searchUser = () => {
-    console.log(inputUserId);
+    console.log(userId);
     db.transaction((tx) => {
       tx.executeSql(
-        'SELECT * FROM table_user where user_id = ?',
-        [inputUserId],
+        'SELECT * FROM employees where id = ?',
+        [userId],
         (tx, results) => {
           var len = results.rows.length;
           if (len > 0) {
             let res = results.rows.item(0);
             updateAllStates(
-              res.user_name,
-              res.user_contact,
-              res.user_address
+              res.firstName,
+              res.lastName,
+              res.gender,
+              res.department
             );
           } else {
             alert('No user found');
-            updateAllStates('', '', '');
+            updateAllStates('', '', '', '');
           }
         }
       );
     });
   };
-  let updateUser = () => {
-    console.log(inputUserId, userName, userContact, userAddress);
+  let UpdateUser = () => {
+    console.log(userId, firstName, lastName, gender, department);
 
-    if (!inputUserId) {
+    if (!userId) {
       alert('Please fill User id');
       return;
     }
-    if (!userName) {
-      alert('Please fill name');
+    if (!firstName) {
+      alert('Please fill first name');
       return;
     }
-    if (!userContact) {
-      alert('Please fill Contact Number');
+    if (!lastName) {
+      alert('Please fill last name');
       return;
     }
-    if (!userAddress) {
-      alert('Please fill Address');
+    if (!gender) {
+      alert('Please fill gender');
+      return;
+    }
+    if (!department) {
+      alert('Please fill department');
       return;
     }
 
     db.transaction((tx) => {
       tx.executeSql(
-        'UPDATE table_user set user_name=?, user_contact=? , user_address=? where user_id=?',
-        [userName, userContact, userAddress, inputUserId],
+        'UPDATE employees set firstName=?, lastName=? , gender=?, department=? where id = ?',
+        [firstName, lastName, gender, department, userId],
         (tx, results) => {
           console.log('Results', results.rowsAffected);
           if (results.rowsAffected > 0) {
@@ -92,7 +99,6 @@ const UpdateUser = ({ navigation }) => {
       );
     });
   };
-
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ flex: 1, backgroundColor: 'white' }}>
@@ -105,7 +111,7 @@ const UpdateUser = ({ navigation }) => {
                 placeholder="Enter User Id"
                 style={{ padding: 10 }}
                 onChangeText={
-                  (inputUserId) => setInputUserId(inputUserId)
+                  (userId) => setUserId(userId)
                 }
               />
               <Mybutton
@@ -113,28 +119,38 @@ const UpdateUser = ({ navigation }) => {
                 customClick={searchUser} 
               />
               <Mytextinput
-                placeholder="Enter Name"
-                value={userName}
+                placeholder="Enter First Name"
+                value={firstName}
                 style={{ padding: 10 }}
                 onChangeText={
-                  (userName) => setUserName(userName)
+                  (firstName) => setFirstName(firstName)
                 }
               />
               <Mytextinput
-                placeholder="Enter Contact No"
-                value={'' + userContact}
+                placeholder="Enter Last Name"
+                value={'' + lastName}
                 onChangeText={
-                  (userContact) => setUserContact(userContact)
+                  (lastName) => setLastName(lastName)
                 }
                 maxLength={10}
                 style={{ padding: 10 }}
-                keyboardType="numeric"
               />
               <Mytextinput
-                value={userAddress}
-                placeholder="Enter Address"
+                value={gender}
+                placeholder="Enter gender"
                 onChangeText={
-                  (userAddress) => setUserAddress(userAddress)
+                  (gender) => setGender(gender)
+                }
+                maxLength={225}
+                numberOfLines={5}
+                multiline={true}
+                style={{ textAlignVertical: 'top', padding: 10 }}
+              />
+                <Mytextinput
+                value={department}
+                placeholder="Enter department"
+                onChangeText={
+                  (department) => setDepartment(department)
                 }
                 maxLength={225}
                 numberOfLines={5}
@@ -143,7 +159,7 @@ const UpdateUser = ({ navigation }) => {
               />
               <Mybutton
                 title="Update User"
-                customClick={updateUser}
+                customClick={UpdateUser}
               />
             </KeyboardAvoidingView>
           </ScrollView>
