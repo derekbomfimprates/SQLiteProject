@@ -59,7 +59,7 @@ const HomeScreen = ({ navigation }) => {
           />
           <Mybutton
             title="All Users"
-            customClick={() => navigation.navigate('ViewAllUser')}
+            customClick={() => navigation.navigate('ViewAll')}
           />
           <Mybutton
             title="Delete User"

@@ -5,7 +5,7 @@ import * as SQLite from 'expo-sqlite';
 
 const db = SQLite.openDatabase('employees.db');
 
-const ViewAllUser = ({ navigation }) => {
+const ViewAllUser = () => {
   let [flatListItems, setFlatListItems] = useState([]);
 
   useEffect(() => {

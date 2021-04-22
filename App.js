@@ -13,7 +13,7 @@ import RegisterUser from './screens/Register';
 import ViewUser from './screens/View';
 import DeleteUser from './screens/Delete';
 import UpdateUser from './screens/Updates';
-import ViewAllUser from './screens/ViewAllUser';
+import ViewAllUser from './screens/ViewAll';
 
 
 //import MenuItem from "...";

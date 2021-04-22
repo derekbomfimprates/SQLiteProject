@@ -4,7 +4,7 @@ import Mytextinput from './Components/MyTextInput';
 import Mybutton from './Components/MyButtons';
 import * as SQLite from 'expo-sqlite';
 
-const db = SQLite.openDatabase('UserDatabase.db');
+const db = SQLite.openDatabase('employees.db');
 
 const DeleteUser = ({ navigation }) => {
   let [inputUserId, setInputUserId] = useState('');
@@ -12,7 +12,7 @@ const DeleteUser = ({ navigation }) => {
   let deleteUser = () => {
     db.transaction((tx) => {
       tx.executeSql(
-        'DELETE FROM  table_user where user_id=?',
+        'DELETE FROM  employees where id=?', // using SQL function to find the user in the table
         [inputUserId],
         (tx, results) => {
           console.log('Results', results.rowsAffected);
