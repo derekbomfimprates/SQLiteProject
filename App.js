@@ -89,9 +89,9 @@ const App = () => {
           options={{
             title: 'View Users', //Set Header Title
             headerStyle: {
-              backgroundColor: '#f4511e', //Set Header color
+              backgroundColor: '#00CCFF', //Set Header color
             },
-            headerTintColor: '#fff', //Set Header text color
+            headerTintColor: 'black', //Set Header text color
             headerTitleStyle: {
               fontWeight: 'bold', //Set Header text style
             },
