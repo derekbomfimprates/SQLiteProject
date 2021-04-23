@@ -45,7 +45,7 @@ const App = () => {
           name="View"
           component={ViewUser}
           options={{
-            title: 'View User', //Set Header Title
+            title: 'View Employee', //Set Header Title
             headerStyle: {
               backgroundColor: '#00CCFF', //Set Header color
             },
@@ -59,7 +59,7 @@ const App = () => {
           name="Delete"
           component={DeleteUser}
           options={{
-            title: 'Delete User', //Set Header Title
+            title: 'Delete Employee', //Set Header Title
             headerStyle: {
               backgroundColor: '#00CCFF', //Set Header color
             },
@@ -73,7 +73,7 @@ const App = () => {
           name="Register"
           component={RegisterUser}
           options={{
-            title: 'Register User', //Set Header Title
+            title: 'Register Employee', //Set Header Title
             headerStyle: {
               backgroundColor: '#00CCFF', //Set Header color
             },
@@ -87,7 +87,7 @@ const App = () => {
           name="ViewAll"
           component={ViewAllUser}
           options={{
-            title: 'View Users', //Set Header Title
+            title: 'View All Employees', //Set Header Title
             headerStyle: {
               backgroundColor: '#00CCFF', //Set Header color
             },
@@ -101,7 +101,7 @@ const App = () => {
           name="Updates"
           component={UpdateUser}
           options={{
-            title: 'Update User', //Set Header Title
+            title: 'Update Employee', //Set Header Title
             headerStyle: {
               backgroundColor: '#00CCFF', //Set Header color
             },

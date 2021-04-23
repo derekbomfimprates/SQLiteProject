@@ -45,7 +45,7 @@ const UpdateUser = ({ navigation }) => {
               res.department
             );
           } else {
-            alert('No user found');
+            alert('No employee found');
             updateAllStates('', '', '', '');
           }
         }
@@ -56,7 +56,7 @@ const UpdateUser = ({ navigation }) => {
     console.log(userId, firstName, lastName, gender, department);
 
     if (!userId) {
-      alert('Please fill User id');
+      alert('Please fill employee ID');
       return;
     }
     if (!firstName) {
@@ -85,7 +85,7 @@ const UpdateUser = ({ navigation }) => {
           if (results.rowsAffected > 0) {
             Alert.alert(
               'Success',
-              'User updated successfully',
+              'Employee updated successfully',
               [
                 {
                   text: 'Ok',
@@ -108,14 +108,14 @@ const UpdateUser = ({ navigation }) => {
               behavior="padding"
               style={{ flex: 1, justifyContent: 'space-between' }}>
               <Mytextinput
-                placeholder="Enter User Id"
+                placeholder="Enter Employee ID"
                 style={{ padding: 10 }}
                 onChangeText={
                   (userId) => setUserId(userId)
                 }
               />
               <Mybutton
-                title="Search User"
+                title="Search Employee"
                 customClick={searchUser} 
               />
               <Mytextinput
@@ -137,7 +137,7 @@ const UpdateUser = ({ navigation }) => {
               />
               <Mytextinput
                 value={gender}
-                placeholder="Enter gender"
+                placeholder="Enter Gender"
                 onChangeText={
                   (gender) => setGender(gender)
                 }
@@ -148,7 +148,7 @@ const UpdateUser = ({ navigation }) => {
               />
                 <Mytextinput
                 value={department}
-                placeholder="Enter department"
+                placeholder="Enter Department"
                 onChangeText={
                   (department) => setDepartment(department)
                 }
@@ -158,7 +158,7 @@ const UpdateUser = ({ navigation }) => {
                 style={{ textAlignVertical: 'top', padding: 10 }}
               />
               <Mybutton
-                title="Update User"
+                title="Update Employee"
                 customClick={UpdateUser}
               />
             </KeyboardAvoidingView>

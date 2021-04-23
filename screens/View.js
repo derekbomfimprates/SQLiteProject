@@ -23,7 +23,7 @@ const ViewUser = () => {
           if (len > 0) {
             setUserData(results.rows.item(0));
           } else {
-            alert('No user found');
+            alert('No employee found');
           }
         }
       );
@@ -35,20 +35,20 @@ const ViewUser = () => {
       <View style={{ flex: 1, backgroundColor: 'white' }}>
         <View style={{ flex: 1 }}>
           <Mytextinput
-            placeholder="Enter User Id"
+            placeholder="Enter Employee ID"
             onChangeText={
               (userId) => setUserId(userId)
             }
             style={{ padding: 10 }}
           />
-          <Mybutton title="Search User" customClick={searchUser} />
+          <Mybutton title="Search Employee" customClick={searchUser} />
           <View
             style={{
               marginLeft: 35,
               marginRight: 35,
               marginTop: 10
             }}>
-            <Text>Employee Id: {userData.id}</Text>
+            <Text>Employee ID: {userData.id}</Text>
             <Text>First Name: {userData.firstName}</Text>
             <Text>Last Name: {userData.lastName}</Text>
             <Text>Gender: {userData.gender}</Text>

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, View, Text, SafeAreaView } from 'react-native';
+import { StyleSheet, View, Text, SafeAreaView, Image } from 'react-native';
 import Mybutton from './Components/MyButtons';
 import Mytext from './Components/MyText';
 import * as SQLite from 'expo-sqlite';
@@ -62,12 +62,14 @@ const HomeScreen = ({ navigation }) => {
             customClick={() => navigation.navigate('ViewAll')}
           />
           <Mybutton
-            title="Delete User"
+            title="Delete Employee"
             customClick={() => navigation.navigate('Delete')}
           />
-          
-          
+          <View style={{flexDirection: 'column',justifyContent: 'center', alignItems: 'center'}} >
+         <Image source={require('../assets/logo.png')}  style={{ width: 200, height: 200, alignItems: 'center' }}/>
         </View>
+        </View>
+  
        </View>
     </SafeAreaView>
   );

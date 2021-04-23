@@ -27,9 +27,9 @@ const ViewAllUser = () => {
     return (
       <View
         style={{
-          height: 0.2,
+          height: 1,
           width: '100%',
-          backgroundColor: '#808080'
+          backgroundColor: '#00CCFF'
         }}
       />
     );
@@ -40,7 +40,7 @@ const ViewAllUser = () => {
       <View
         key={item.id}
         style={{ backgroundColor: 'white', padding: 20 }}>
-        <Text>Id: {item.id}</Text>
+        <Text>ID: {item.id}</Text>
         <Text>First Name: {item.firstName}</Text>
         <Text>Last Name: {item.lastName}</Text>
         <Text>Gender: {item.gender}</Text>

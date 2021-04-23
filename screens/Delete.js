@@ -30,7 +30,7 @@ const DeleteUser = ({ navigation }) => {
               { cancelable: false }
             );
           } else {
-            alert('Please insert a valid User Id');
+            alert('Please insert a valid Employee ID');
           }
         }
       );
@@ -41,9 +41,9 @@ const DeleteUser = ({ navigation }) => {
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ flex: 1, backgroundColor: 'white' }}>
         <View style={{ flex: 1 }}>
-        <Icon style={{  flexDirection: "row" }} name='person-remove-outline' type='ionicon'/>
+        <Icon style={{ alignContent: 'center'}} size='70' name='person-remove-outline'  color='#00CCFF' type='ionicon'/>
           <Mytextinput
-            placeholder="Enter User Id"
+            placeholder="Enter Employee ID"
             onChangeText={
               (inputUserId) => setInputUserId(inputUserId)
             }
