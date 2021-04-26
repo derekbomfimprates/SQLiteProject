@@ -14,7 +14,7 @@ import ViewUser from './screens/View';
 import DeleteUser from './screens/Delete';
 import UpdateUser from './screens/Updates';
 import ViewAllUser from './screens/ViewAll';
-
+import GetId from './screens/GetId';
 
 //import MenuItem from "...";
 //import Button from "...";
@@ -38,6 +38,7 @@ const App = () => {
             headerTitleStyle: {
               fontWeight: 'bold', //Set Header text style
               alignSelf: 'center',
+              
             },
           }}
         />
@@ -102,6 +103,20 @@ const App = () => {
           component={UpdateUser}
           options={{
             title: 'Update Employee', //Set Header Title
+            headerStyle: {
+              backgroundColor: '#00CCFF', //Set Header color
+            },
+            headerTintColor: 'black', //Set Header text color
+            headerTitleStyle: {
+              fontWeight: 'bold', //Set Header text style
+            },
+          }}
+        />
+        <Stack.Screen
+          name="GetId"
+          component={GetId}
+          options={{
+            title: 'GetId', //Set Header Title
             headerStyle: {
               backgroundColor: '#00CCFF', //Set Header color
             },

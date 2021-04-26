@@ -1,10 +1,18 @@
-import React, { useEffect } from 'react';
-import { StyleSheet, View, Text, SafeAreaView, Image } from 'react-native';
-import Mybutton from './Components/MyButtons';
-import Mytext from './Components/MyText';
-import * as SQLite from 'expo-sqlite';
+import React, { useEffect, useState } from "react";
+import {
+  StyleSheet,
+  View,
+  Text,
+  SafeAreaView,
+  Image,
+  KeyboardAvoidingView,
+  Animated,
+} from "react-native";
+import Mybutton from "./Components/MyButtons";
+import Mytext from "./Components/MyText";
+import * as SQLite from "expo-sqlite";
 
-const db = SQLite.openDatabase('employees.db');
+const db = SQLite.openDatabase("employees.db");
 const HomeScreen = ({ navigation }) => {
   useEffect(() => {
     db.transaction(function (txn) {
@@ -12,9 +20,9 @@ const HomeScreen = ({ navigation }) => {
         "SELECT name FROM sqlite_master WHERE type='table' AND name='employees'",
         [],
         function (tx, res) {
-          console.log('item:', res.rows.length);
+          console.log("item:", res.rows.length);
           if (res.rows.length == 0) {
-            txn.executeSql('DROP TABLE IF EXISTS employees', []);
+            txn.executeSql("DROP TABLE IF EXISTS employees", []);
             txn.executeSql(
               `CREATE TABLE IF NOT EXISTS employees
                   (
@@ -24,7 +32,9 @@ const HomeScreen = ({ navigation }) => {
                       gender TEXT NOT NULL,
                       department TEXT NOT NULL                
                   );
-              `,[]);
+              `,
+              []
+            );
           }
         }
       );
@@ -32,50 +42,85 @@ const HomeScreen = ({ navigation }) => {
   }, []);
 
   const styles = StyleSheet.create({
- 
     btn: {
       height: 20,
- 
+    },
+    container: {
+      backgroundColor: "white",
+      flex: 1,
+    },
+    logoContainer: {
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+    },
+    logo: {
+      width: 200,
+      height: 200,
+      alignItems: "center",
     },
   });
- 
+
+  const [offset] = useState(new Animated.ValueXY({ x: 0, y: 80 }));
+  // const [opacity] = useState(new Animated.Value(0));
+  useEffect(() => {
+    Animated.parallel([
+      Animated.spring(offset.y, {
+        toValue: 0,
+        speed: 4,
+        bounciness: 20,
+        useNativeDriver: true,
+      }),
+      // Animated.timing(opacity, {
+      //   toValue:1,
+      //   duration: 200,
+        
+      // })
+    ]).start();
+  }, []);
   return (
-    <SafeAreaView style={{  }}>
-      <View style={{backgroundColor: 'white' }}>
-        <View style={{}}>
-          
-          <Mybutton
-            style={styles.btn}
-            title="New Employee"
-            customClick={() => navigation.navigate('Register')}
-          />
-          <Mybutton
-            title="View Employee"
-            customClick={() => navigation.navigate('View')}
-          />
-          <Mybutton
-            title="Update Employee"
-            customClick={() => navigation.navigate('Updates')}
-          />
-          <Mybutton
-            title="View All Employees"
-            customClick={() => navigation.navigate('ViewAll')}
-          />
-          <Mybutton
-            title="Delete Employee"
-            customClick={() => navigation.navigate('Delete')}
-          />
-          <View style={{flexDirection: 'column',justifyContent: 'center', alignItems: 'center'}} >
-         <Image source={require('../assets/logo.png')}  style={{ width: 200, height: 200, alignItems: 'center' }}/>
+    <SafeAreaView style={styles.container}>
+      <Animated.View
+        // style={[
+        //   styles.container,
+        //   {
+        //     // opacity: opacity,
+        //     transform: [{ translateY: offset.y }],
+        //   },
+        // ]}
+      >
+        <View style={styles.logoContainer}>
+          <Image source={require("../assets/logo.png")} style={styles.logo} />
         </View>
-        </View>
-  
-       </View>
+
+        <Mybutton
+          style={styles.btn}
+          title="New Employee"
+          customClick={() => navigation.navigate("Register")}
+        />
+        <Mybutton
+          title="View Employee"
+          customClick={() => navigation.navigate("View")}
+        />
+        <Mybutton
+          title="Update Employee"
+          customClick={() => navigation.navigate("Updates")}
+        />
+        <Mybutton
+          title="View All Employees"
+          customClick={() => navigation.navigate("ViewAll")}
+        />
+        <Mybutton
+          title="Delete Employee"
+          customClick={() => navigation.navigate("Delete")}
+        />
+        <Mybutton
+          title="Get Employee ID"
+          customClick={() => navigation.navigate("GetId")}
+        />
+      </Animated.View>
     </SafeAreaView>
   );
-
 };
-
-
 
 export default HomeScreen;
