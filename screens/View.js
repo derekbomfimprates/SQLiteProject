@@ -54,6 +54,7 @@ const ViewUser = () => {
             <Text>Gender: {userData.gender}</Text>
             <Text>Department: {userData.department}</Text>
           </View>
+          
         </View>
         
         

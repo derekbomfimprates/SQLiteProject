@@ -13,11 +13,6 @@ import Mybutton from './Components/MyButtons';
 import * as SQLite from 'expo-sqlite';
 
 const db = SQLite.openDatabase('employees.db');
-// id INTEGER PRIMARY KEY NOT NULL,
-// firstName TEXT NOT NULL,
-// lastName TEXT NOT NULL,
-// gender TEXT NOT NULL,
-// department TEXT NOT NULL  
 
 const RegisterUser = ({ navigation }) => {
   let [firstName, setFirstName] = useState('');
