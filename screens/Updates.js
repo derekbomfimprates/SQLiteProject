@@ -11,6 +11,7 @@ import {
 import Mytextinput from './Components/MyTextInput';
 import Mybutton from './Components/MyButtons';
 import * as SQLite from 'expo-sqlite';
+import { Icon } from 'react-native-elements';
 
 const db = SQLite.openDatabase('employees.db');
 
@@ -103,6 +104,7 @@ const UpdateUser = ({ navigation }) => {
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ flex: 1, backgroundColor: 'white' }}>
         <View style={{ flex: 1 }}>
+        <Icon style={{ alignContent: 'center'}} size='70' name='sync-outline'  color='#00CCFF' type='ionicon'/>
           <ScrollView keyboardShouldPersistTaps="handled">
             <KeyboardAvoidingView
               behavior="padding"

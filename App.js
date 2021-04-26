@@ -116,7 +116,7 @@ const App = () => {
           name="GetId"
           component={GetId}
           options={{
-            title: 'GetId', //Set Header Title
+            title: 'Get ID', //Set Header Title
             headerStyle: {
               backgroundColor: '#00CCFF', //Set Header color
             },

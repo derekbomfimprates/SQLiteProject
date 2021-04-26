@@ -5,7 +5,7 @@ import Mybutton from './Components/MyButtons';
 import * as SQLite from 'expo-sqlite';
 import { Icon } from 'react-native-elements';
 
-const db = SQLite.openDatabase('employees.db');
+const db = SQLite.openDatabase('employees.db'); // this is the acces to our database created by expo-sqlite
 
 const DeleteUser = ({ navigation }) => {
   let [inputUserId, setInputUserId] = useState(''); 
@@ -24,13 +24,13 @@ const DeleteUser = ({ navigation }) => {
               [
                 {
                   text: 'Ok',
-                  onPress: () => navigation.navigate('HomeScreen'),
+                  onPress: () => navigation.navigate('HomeScreen'), // when the user click ok the app will go to the homescreen
                 },
               ],
               { cancelable: false }
             );
           } else {
-            alert('Please insert a valid Employee ID');
+            alert('Please insert a valid Employee ID'); // in case the system doesnt find the employee, it will show this message to the user. 
           }
         }
       );

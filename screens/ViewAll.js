@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { FlatList, Text, View, SafeAreaView } from 'react-native';
 import * as SQLite from 'expo-sqlite';
+import { Icon } from 'react-native-elements';
 
 const db = SQLite.openDatabase('employees.db');
 
@@ -53,6 +54,7 @@ const ViewAllUser = () => {
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ flex: 1, backgroundColor: 'white' }}>
         <View style={{ flex: 1 }}>
+        <Icon style={{ alignContent: 'center'}} size='70' name='people-outline'  color='#00CCFF' type='ionicon'/>
           <FlatList
             data={flatListItems}
             ItemSeparatorComponent={listViewItemSeparator}

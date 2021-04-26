@@ -3,6 +3,7 @@ import { FlatList, Text, View, SafeAreaView } from "react-native";
 import Mytextinput from "./Components/MyTextInput";
 import Mybutton from "./Components/MyButtons";
 import * as SQLite from "expo-sqlite";
+import { Icon } from 'react-native-elements';
 
 const db = SQLite.openDatabase("employees.db");
 
@@ -67,6 +68,7 @@ const GetId = () => {
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ flex: 1, backgroundColor: "white" }}>
         <View style={{ flex: 1 }}>
+        <Icon style={{ alignContent: 'center'}} size='70' name='search-outline'  color='#00CCFF' type='ionicon'/>
           <Mytextinput
             placeholder="Enter Employee first Name"
             onChangeText={(userName) => setUserName(userName)}
