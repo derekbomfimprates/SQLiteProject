@@ -68,7 +68,7 @@ const GetId = () => {
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ flex: 1, backgroundColor: "white" }}>
         <View style={{ flex: 1 }}>
-        <Icon style={{ alignContent: 'center'}} size='70' name='search-outline'  color='#00CCFF' type='ionicon'/>
+        <Icon style={{ alignContent: 'center'}} size={70} name='search-outline'  color='#00CCFF' type='ionicon'/>
           <Mytextinput
             placeholder="Enter Employee first Name"
             onChangeText={(userName) => setUserName(userName)}

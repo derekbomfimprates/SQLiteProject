@@ -104,7 +104,7 @@ const UpdateUser = ({ navigation }) => {
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ flex: 1, backgroundColor: 'white' }}>
         <View style={{ flex: 1 }}>
-        <Icon style={{ alignContent: 'center'}} size='70' name='sync-outline'  color='#00CCFF' type='ionicon'/>
+        <Icon style={{ alignContent: 'center'}} size={70} name='sync-outline'  color='#00CCFF' type='ionicon'/>
           <ScrollView keyboardShouldPersistTaps="handled">
             <KeyboardAvoidingView
               behavior="padding"

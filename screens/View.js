@@ -35,7 +35,7 @@ const ViewUser = () => {
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ flex: 1, backgroundColor: 'white' }}>
         <View style={{ flex: 1 }}>
-        <Icon style={{ alignContent: 'center'}} size='70' name='person-outline'  color='#00CCFF' type='ionicon'/>
+        <Icon style={{ alignContent: 'center'}} size={70} name='person-outline'  color='#00CCFF' type='ionicon'/>
           
           <Mytextinput
             placeholder="Enter Employee ID"

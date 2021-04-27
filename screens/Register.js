@@ -51,7 +51,7 @@ const RegisterUser = ({ navigation }) => {
           if (results.rowsAffected > 0) {
             Alert.alert(
               'Success',
-              'You are Registered Successfully',
+              'Employee registered successfully',
               [
                 {
                   text: 'Ok',
@@ -70,7 +70,7 @@ const RegisterUser = ({ navigation }) => {
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ flex: 1, backgroundColor: 'white' }}>
         <View style={{ flex: 1 }}>
-        <Icon style={{ alignContent: 'center'}} size='70' name='person-add-outline'  color='#00CCFF' type='ionicon'/>
+        <Icon style={{ alignContent: 'center'}} size={70} name='person-add-outline'  color='#00CCFF' type='ionicon'/>
           <ScrollView keyboardShouldPersistTaps="handled">
             <KeyboardAvoidingView
               behavior="padding"

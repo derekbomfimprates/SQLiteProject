@@ -54,7 +54,7 @@ const ViewAllUser = () => {
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ flex: 1, backgroundColor: 'white' }}>
         <View style={{ flex: 1 }}>
-        <Icon style={{ alignContent: 'center'}} size='70' name='people-outline'  color='#00CCFF' type='ionicon'/>
+        <Icon style={{ alignContent: 'center'}} size={70} name='people-outline'  color='#00CCFF' type='ionicon'/>
           <FlatList
             data={flatListItems}
             ItemSeparatorComponent={listViewItemSeparator}
