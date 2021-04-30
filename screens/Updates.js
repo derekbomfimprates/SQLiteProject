@@ -53,7 +53,7 @@ const UpdateUser = ({ navigation }) => {
       );
     });
   };
-  let UpdateUser = ({ navigation }) => {
+  let UpdateUser = ({}) => {
     console.log(rowid, firstName, lastName, gender, department);
 
     if (!rowid) {
@@ -163,12 +163,13 @@ const UpdateUser = ({ navigation }) => {
                 title="Update Employee"
                 customClick={UpdateUser}
               />
-            </KeyboardAvoidingView>
-          </ScrollView>
-          <Mybutton
+                 <Mybutton
           title="Get the ID"
           customClick={() => navigation.navigate("GetId")}
         />
+            </KeyboardAvoidingView>
+          </ScrollView>
+       
         </View>
         
       </View>
