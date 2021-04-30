@@ -6,8 +6,8 @@ import * as SQLite from 'expo-sqlite';
 import { Icon } from 'react-native-elements';
 
 const db = SQLite.openDatabase('employees.db');
+const ViewUser = ({ navigation }) => {
 
-const ViewUser = () => {
   let [rowid, setRowId] = useState('');
   let [userData, setUserData] = useState({});
 
@@ -57,13 +57,18 @@ const ViewUser = () => {
             <Text>Gender: {userData.gender}</Text>
             <Text>Department: {userData.department}</Text>
           </View>
-          
+           <Mybutton
+          title="Get the ID"
+          customClick={() => navigation.navigate("GetId")}
+        />
         </View>
-        
+
+       
         
       </View>
     </SafeAreaView>
   );
 };
+
 
 export default ViewUser;
