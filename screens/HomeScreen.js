@@ -4,6 +4,7 @@ import {
   View,
   Text,
   SafeAreaView,
+  ScrollView,
   Image,
   KeyboardAvoidingView,
   Animated,
@@ -78,6 +79,8 @@ const HomeScreen = ({ navigation }) => {
           <Image source={require("../assets/logo.png")} style={styles.logo} />
         </View>
 
+        <ScrollView keyboardShouldPersistTaps="handled">
+
         <Mybutton
           style={styles.btn}
           title="New Employee"
@@ -103,6 +106,7 @@ const HomeScreen = ({ navigation }) => {
           title="Get Employee ID"
           customClick={() => navigation.navigate("GetId")}
         />
+        </ScrollView>
       </Animated.View>
     </SafeAreaView>
   );

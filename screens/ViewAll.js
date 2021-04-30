@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ScrollView } from 'react';
 import { FlatList, Text, View, SafeAreaView } from 'react-native';
 import * as SQLite from 'expo-sqlite';
 import { Icon } from 'react-native-elements';
