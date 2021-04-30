@@ -1,10 +1,5 @@
-//import { StatusBar } from 'expo-status-bar';
-//mport React from 'react';
-//import { StyleSheet, Text, View } from 'react-native';
 import 'react-native-gesture-handler';
 import * as React from 'react';
-//import { StyleSheet, Button, View,Text} from 'react-native';
-//import Menu, { MenuItem, MenuDivider } from 'react-native-material-menu';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -16,9 +11,7 @@ import UpdateUser from './screens/Updates';
 import ViewAllUser from './screens/ViewAll';
 import GetId from './screens/GetId';
 
-//import MenuItem from "...";
-//import Button from "...";
-//import Menu from "@material-ui/core/Menu";
+
   
 const Stack = createStackNavigator();
 

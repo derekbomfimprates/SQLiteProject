@@ -61,7 +61,6 @@ const HomeScreen = ({ navigation }) => {
   });
 
   const [offset] = useState(new Animated.ValueXY({ x: 0, y: 80 }));
-  // const [opacity] = useState(new Animated.Value(0));
   useEffect(() => {
     Animated.parallel([
       Animated.spring(offset.y, {
@@ -70,24 +69,11 @@ const HomeScreen = ({ navigation }) => {
         bounciness: 20,
         useNativeDriver: true,
       }),
-      // Animated.timing(opacity, {
-      //   toValue:1,
-      //   duration: 200,
-        
-      // })
     ]).start();
   }, []);
   return (
     <SafeAreaView style={styles.container}>
-      <Animated.View
-        // style={[
-        //   styles.container,
-        //   {
-        //     // opacity: opacity,
-        //     transform: [{ translateY: offset.y }],
-        //   },
-        // ]}
-      >
+      <Animated.View>
         <View style={styles.logoContainer}>
           <Image source={require("../assets/logo.png")} style={styles.logo} />
         </View>

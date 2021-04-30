@@ -53,7 +53,7 @@ const DeleteUser = ({ navigation }) => {
         </View>
         <Mybutton
           title="Get the ID"
-          customClick={() => navigation.navigate("GetId")}
+          customClick={() => navigation.navigate("GetId")} // we included this navigation to GetId screen, because the user will need this information to delete
         />
       </View>
     </SafeAreaView>
