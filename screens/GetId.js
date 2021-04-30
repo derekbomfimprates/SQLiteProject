@@ -1,3 +1,7 @@
+// For this project we used this code as base to create our app.
+// Agrawal, S., 2021. Example of SQLite Database in React Native - About React. [online] 
+// About React. Available at: <https://aboutreact.com/example-of-sqlite-database-in-react-native/> 
+
 import React, { useState } from "react";
 import { FlatList, Text, View, SafeAreaView } from "react-native";
 import Mytextinput from "./Components/MyTextInput";
@@ -70,12 +74,12 @@ const GetId = () => {
         <View style={{ flex: 1 }}>
         <Icon style={{ alignContent: 'center'}} size={70} name='search-outline'  color='#00CCFF' type='ionicon'/>
           <Mytextinput
-            placeholder="Enter Employee first Name"
+            placeholder="Enter Employee First Name"
             onChangeText={(userName) => setUserName(userName)}
             style={{ padding: 10 }}
           />
           <Mytextinput
-            placeholder="Enter Employee last Name"
+            placeholder="Enter Employee Last Name"
             onChangeText={(userName1) => setUserName1(userName1)}
             style={{ padding: 10 }}
           />

@@ -1,3 +1,6 @@
+// For this project we used this code as base to create our app.
+// Agrawal, S., 2021. Example of SQLite Database in React Native - About React. [online] 
+// About React. Available at: <https://aboutreact.com/example-of-sqlite-database-in-react-native/> 
 
 import React, { useState } from 'react';
 import {

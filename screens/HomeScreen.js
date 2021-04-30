@@ -1,3 +1,7 @@
+// For this project we used this code as base to create our app.
+// Agrawal, S., 2021. Example of SQLite Database in React Native - About React. [online] 
+// About React. Available at: <https://aboutreact.com/example-of-sqlite-database-in-react-native/> 
+
 import React, { useEffect, useState } from "react";
 import {
   StyleSheet,
@@ -11,11 +15,18 @@ import {
 } from "react-native";
 import Mybutton from "./Components/MyButtons";
 import Mytext from "./Components/MyText";
+
+//using expo-sqlite to create a database, best approach we found, you can check it on:
+//Snyk, 2021, SQLite Storage for React Native. [online] 
+//Available at:  <https://snyk.io/advisor/npm-package/react-native-sqlite-2@3.1.1> 
 import * as SQLite from "expo-sqlite";
 
+ // using openDatabase to open the db that expo-sqlite creates for us. 
 const db = SQLite.openDatabase("employees.db");
+
 const HomeScreen = ({ navigation }) => {
   useEffect(() => {
+    // functon to reate a database intenaly on the system.
     db.transaction(function (txn) {
       txn.executeSql(
         "SELECT name FROM sqlite_master WHERE type='table' AND name='employees'",
@@ -40,7 +51,7 @@ const HomeScreen = ({ navigation }) => {
       );
     });
   }, []);
-
+//creating stylesheet for container and logo
   const styles = StyleSheet.create({
     btn: {
       height: 20,
@@ -72,6 +83,9 @@ const HomeScreen = ({ navigation }) => {
       }),
     ]).start();
   }, []);
+
+  //we are returning the menu to the App.js, this will be the main page when you open the app.
+
   return (
     <SafeAreaView style={styles.container}>
       <Animated.View>

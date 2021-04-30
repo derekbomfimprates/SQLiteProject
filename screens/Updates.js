@@ -1,3 +1,7 @@
+// For this project we used this code as base to create our app.
+// Agrawal, S., 2021. Example of SQLite Database in React Native - About React. [online] 
+// About React. Available at: <https://aboutreact.com/example-of-sqlite-database-in-react-native/> 
+
 import React, { useState } from 'react'; // Impport React for application 
 import {
   View,
@@ -14,7 +18,7 @@ import * as SQLite from 'expo-sqlite';
 import { Icon } from 'react-native-elements';
 
 const db = SQLite.openDatabase('employees.db');
-
+ //creating a updateuser where we define the set function using userstate as empety, what will be set by the user.
 const UpdateUser = ({ navigation }) => {
   let [rowid, setRowId] = useState('');
   let [firstName, setFirstName] = useState('');
@@ -28,7 +32,7 @@ const UpdateUser = ({ navigation }) => {
     setGender(gender);
     setDepartment(department);
   };
-
+//main function, it requires the rowid and use a sql statement to find the user in the db and returns the information
   let searchUser = () => {
     console.log(rowid);
     db.transaction((tx) => {
@@ -53,6 +57,7 @@ const UpdateUser = ({ navigation }) => {
       );
     });
   };
+  // creating a if statemet to analize if the information is null, in this case we show a mensagem asking to be filled.
   let UpdateUser = ({}) => {
     console.log(rowid, firstName, lastName, gender, department);
 
@@ -76,7 +81,8 @@ const UpdateUser = ({ navigation }) => {
       alert('Please fill department');
       return;
     }
-
+//function to upadate the current information to the one add for the user, where in case of succes
+//the user will press ok and the navigation will change for the home screen
     db.transaction((tx) => {
       tx.executeSql(
         'UPDATE employees set firstName=?, lastName=? , gender=?, department=? where rowid = ?',
@@ -100,6 +106,8 @@ const UpdateUser = ({ navigation }) => {
       );
     });
   };
+
+  //return the place where the user will input the information.
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ flex: 1, backgroundColor: 'white' }}>
@@ -169,7 +177,6 @@ const UpdateUser = ({ navigation }) => {
         />
             </KeyboardAvoidingView>
           </ScrollView>
-       
         </View>
         
       </View>
