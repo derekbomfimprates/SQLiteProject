@@ -12,7 +12,7 @@ const ViewAllUser = () => {
   useEffect(() => {
     db.transaction((tx) => {
       tx.executeSql(
-        'SELECT * FROM employees',
+        'SELECT rowid, firstName, lastName, gender, department FROM employees',
         [],
         (tx, results) => {
           var temp = [];
@@ -39,9 +39,9 @@ const ViewAllUser = () => {
   let listItemView = (item) => {
     return (
       <View
-        key={item.id}
+        key={item.rowid}
         style={{ backgroundColor: 'white', padding: 20 }}>
-        <Text>ID: {item.id}</Text>
+        <Text>ID: {item.rowid}</Text>
         <Text>First Name: {item.firstName}</Text>
         <Text>Last Name: {item.lastName}</Text>
         <Text>Gender: {item.gender}</Text>

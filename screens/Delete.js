@@ -8,13 +8,13 @@ import { Icon } from 'react-native-elements';
 const db = SQLite.openDatabase('employees.db'); // this is the acces to our database created by expo-sqlite
 
 const DeleteUser = ({ navigation }) => {
-  let [inputUserId, setInputUserId] = useState(''); 
+  let [rowid, setRowId] = useState(''); 
 
   let deleteUser = () => {
     db.transaction((tx) => {
       tx.executeSql(
-        'DELETE FROM  employees where id=?', // using SQL function to find the user in the table
-        [inputUserId],
+        'DELETE FROM  employees where rowid = ?', // using SQL function to find the user in the table
+        [rowid],
         (tx, results) => {
           console.log('Results', results.rowsAffected);
           if (results.rowsAffected > 0) {
@@ -45,7 +45,7 @@ const DeleteUser = ({ navigation }) => {
           <Mytextinput
             placeholder="Enter Employee ID"
             onChangeText={
-              (inputUserId) => setInputUserId(inputUserId)
+              (rowid) => setRowId(rowid)
             }
             style={{ padding: 10 }}
           />

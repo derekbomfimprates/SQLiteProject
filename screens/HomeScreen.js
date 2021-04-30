@@ -26,7 +26,6 @@ const HomeScreen = ({ navigation }) => {
             txn.executeSql(
               `CREATE TABLE IF NOT EXISTS employees
                   (
-                      id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
                       firstName TEXT NOT NULL,
                       lastName TEXT NOT NULL,
                       gender TEXT NOT NULL,

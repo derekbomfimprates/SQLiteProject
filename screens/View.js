@@ -8,16 +8,16 @@ import { Icon } from 'react-native-elements';
 const db = SQLite.openDatabase('employees.db');
 
 const ViewUser = () => {
-  let [userId, setUserId] = useState('');
+  let [rowid, setRowId] = useState('');
   let [userData, setUserData] = useState({});
 
   let searchUser = () => {
-    console.log(userId);
+    console.log(rowid);
     setUserData({});
     db.transaction((tx) => {
       tx.executeSql(
-        'SELECT * FROM employees where id = ?',
-        [userId],
+        'SELECT rowid, firstName, lastName, gender, department FROM employees where rowid = ?',
+        [rowid],
         (tx, results) => {
           var len = results.rows.length;
           console.log('len', len);
@@ -40,7 +40,7 @@ const ViewUser = () => {
           <Mytextinput
             placeholder="Enter Employee ID"
             onChangeText={
-              (userId) => setUserId(userId)
+              (rowid) => setRowId(rowid)
             }
             style={{ padding: 10 }}
           />
@@ -51,7 +51,7 @@ const ViewUser = () => {
               marginRight: 35,
               marginTop: 10
             }}>
-            <Text>Employee ID: {userData.id}</Text>
+            <Text>Employee ID: {userData.rowid}</Text>
             <Text>First Name: {userData.firstName}</Text>
             <Text>Last Name: {userData.lastName}</Text>
             <Text>Gender: {userData.gender}</Text>

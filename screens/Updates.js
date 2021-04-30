@@ -16,7 +16,7 @@ import { Icon } from 'react-native-elements';
 const db = SQLite.openDatabase('employees.db');
 
 const UpdateUser = ({ navigation }) => {
-  let [userId, setUserId] = useState('');
+  let [rowid, setRowId] = useState('');
   let [firstName, setFirstName] = useState('');
   let [lastName, setLastName] = useState('');
   let [gender, setGender] = useState('');
@@ -30,11 +30,11 @@ const UpdateUser = ({ navigation }) => {
   };
 
   let searchUser = () => {
-    console.log(userId);
+    console.log(rowid);
     db.transaction((tx) => {
       tx.executeSql(
-        'SELECT * FROM employees where id = ?',
-        [userId],
+        'SELECT * FROM employees where rowid = ?',
+        [rowid],
         (tx, results) => {
           var len = results.rows.length;
           if (len > 0) {
@@ -54,9 +54,9 @@ const UpdateUser = ({ navigation }) => {
     });
   };
   let UpdateUser = () => {
-    console.log(userId, firstName, lastName, gender, department);
+    console.log(rowid, firstName, lastName, gender, department);
 
-    if (!userId) {
+    if (!rowid) {
       alert('Please fill employee ID');
       return;
     }
@@ -79,8 +79,8 @@ const UpdateUser = ({ navigation }) => {
 
     db.transaction((tx) => {
       tx.executeSql(
-        'UPDATE employees set firstName=?, lastName=? , gender=?, department=? where id = ?',
-        [firstName, lastName, gender, department, userId],
+        'UPDATE employees set firstName=?, lastName=? , gender=?, department=? where rowid = ?',
+        [firstName, lastName, gender, department, rowid],
         (tx, results) => {
           console.log('Results', results.rowsAffected);
           if (results.rowsAffected > 0) {
@@ -113,7 +113,7 @@ const UpdateUser = ({ navigation }) => {
                 placeholder="Enter Employee ID"
                 style={{ padding: 10 }}
                 onChangeText={
-                  (userId) => setUserId(userId)
+                  (rowid) => setRowId(rowid)
                 }
               />
               <Mybutton
