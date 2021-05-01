@@ -10,36 +10,38 @@ import { Icon } from 'react-native-elements';
 const db = SQLite.openDatabase('employees.db');
 
 const ViewAllUser = () => {
-  let [flatListItems, setFlatListItems] = useState([]);
+  let [flatListItems, setFlatListItems] = useState([]); // list of attributes that will show on screen 
 
   useEffect(() => {
     db.transaction((tx) => {
       tx.executeSql(
-        'SELECT rowid, firstName, lastName, gender, department FROM employees',
+        'SELECT rowid, firstName, lastName, gender, department FROM employees', // the data that will get to be showed
         [],
         (tx, results) => {
           var temp = [];
-          for (let i = 0; i < results.rows.length; ++i)
+          for (let i = 0; i < results.rows.length; ++i) // here we are getting the number of user count the rows and go into this length and print every user
             temp.push(results.rows.item(i));
-          setFlatListItems(temp);
+          setFlatListItems(temp); // print the full list 
         }
       );
     });
   }, []);
 
   let listViewItemSeparator = () => {
+    
     return (
       <View
         style={{
           height: 1,
           width: '100%',
           backgroundColor: '#00CCFF'
-        }}
+        }} 
       />
     );
   };
 
   let listItemView = (item) => {
+   //created a style of table that will be showed
     return (
       <View
         key={item.rowid}

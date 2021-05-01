@@ -20,15 +20,15 @@ const ViewUser = ({ navigation }) => {
     setUserData({});
     db.transaction((tx) => {
       tx.executeSql(
-        'SELECT rowid, firstName, lastName, gender, department FROM employees where rowid = ?',
+        'SELECT rowid, firstName, lastName, gender, department FROM employees where rowid = ?', 
         [rowid],
         (tx, results) => {
           var len = results.rows.length;
           console.log('len', len);
-          if (len > 0) {
+          if (len > 0) { // when the number of employee is bigger than zero will print the users
             setUserData(results.rows.item(0));
           } else {
-            alert('No employee found');
+            alert('No employee found'); // when the number of employee is zero
           }
         }
       );
