@@ -30,3 +30,9 @@ Figure 3 Update and Delete screens.
 
 
 After all commands (registration, delete and update), a successful message is shown on the screen. Also, a message to fill all blank spaces is displayed when the user tries to submit the registration with missing items.
+
+# Libraries
+
+
+
+
