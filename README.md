@@ -37,7 +37,7 @@ After all commands (registration, delete and update), a successful message is sh
 
  - npm
 
-npm install npm@latest -g
+npm install 
 
 2. Installation
 
@@ -52,6 +52,13 @@ npm install
 4. Run the application
 
 npm run start
+
+## About me
+
+[![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white&link=https://github.com/derekbomfimprates)](https://github.com/derekbomfimprates)
+
+[![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/derekprates/)]( https://www.linkedin.com/in/derekprates/)
+
 
 
 
