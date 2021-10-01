@@ -31,7 +31,27 @@ Figure 3 Update and Delete screens.
 
 After all commands (registration, delete and update), a successful message is shown on the screen. Also, a message to fill all blank spaces is displayed when the user tries to submit the registration with missing items.
 
-# Libraries
+# Getting started
+
+1. Prerequisites
+
+ - npm
+
+npm install npm@latest -g
+
+2. Installation
+
+ - Clone the repo
+
+git clone https://github.com/derekbomfimprates/SQLiteProject.git
+
+3. Install NPM packages
+
+npm install
+
+4. Run the application
+
+npm run start
 
 
 
